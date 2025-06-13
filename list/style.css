@@ -1,0 +1,24 @@
+/* Fade in every element one after another */
+* {
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+}
+
+body * {
+    animation-delay: calc(var(--fade-order, 1) * 0.4s);
+}
+
+/* Keyframes for fade in */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Assign --fade-order to each element using :nth-child for demonstration */
+body > *:nth-child(1) { --fade-order: 1; }
+body > *:nth-child(2) { --fade-order: 2; }
+body > *:nth-child(3) { --fade-order: 3; }
+body > *:nth-child(4) { --fade-order: 4; }
+body > *:nth-child(5) { --fade-order: 5; }
+/* Add more as needed */
